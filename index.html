@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>profil dynamique</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="skeletonStyle.css" />
+  </head>
+  <body>
+    <div class="skeleton-card" id="skeletonCard">
+      <div class="skeleton-pb"></div>
+      <div class="skeleton-texte">
+        <div class="skeleton-buttons"></div>
+        <div class="skeleton-buttons"></div>
+      </div>
+    </div>
+    <div class="card" id="actualCard">
+      <div class="pb"></div>
+      <div class="info">
+        <h1>SAP Jedeon</h1>
+        <h2>Full-Stack Developer</h2>
+      </div>
+      <div class="detail">
+        <div class="col">
+          <h3>410</h3>
+          <h4>Posts</h4>
+        </div>
+        <div class="col">
+          <h3>300k</h3>
+          <h4>Followers</h4>
+        </div>
+        <div class="col">
+          <h3>120</h3>
+          <h4>Following</h4>
+        </div>
+      </div>
+      <div class="buttons">
+        <button id="follow">Follow</button>
+        <button id="message">Message</button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const hideElement = (elementId) => {
+          document.getElementById(elementId).style.display = "none";
+        };
+
+        const showElement = (elementId) => {
+          document.getElementById(elementId).style.display = "block";
+        };
+
+        // Cacher la .card initialement
+        hideElement("actualCard");
+
+        // Afficher la .skeleton-card
+        showElement("skeletonCard");
+
+        // Temps d'affichage de la .skeleton-card (en millisecondes)
+        const skeletonDisplayTime = 2500;
+
+        setTimeout(() => {
+          // Cacher la .skeleton-card après le temps défini
+          hideElement("skeletonCard");
+
+          // Afficher la .card
+          showElement("actualCard");
+        }, skeletonDisplayTime);
+      });
+    </script>
+  </body>
+</html>
